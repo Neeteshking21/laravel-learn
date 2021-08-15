@@ -13,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/{name}', function ($name) {
+    return view('hello', ['name'=>$name]);
+});
+Route::get('/welcome', function () {
     return view('welcome');
 });
+Route::get('/king', function () {
+    return redirect("home"); // When you want to redirect page to another page instead of given url page    
+});
+
+Route::view("about", "about");
+Route::view("home", "home");
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
