@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+// calling controller
+use App\Http\Controllers\Users;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +15,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{name}', function ($name) {
+Route::get('/king/{name}', function ($name) {
     return view('hello', ['name'=>$name]);
 });
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/king', function () {
     return redirect("home"); // When you want to redirect page to another page instead of given url page    
 });
+// Short way to view pages
 
-Route::view("about", "about");
+Route::get("about/{value}", [Users::class, 'callView']);
 Route::view("home", "home");
+
+
+
+// Using Controller(Users.php)
+
+Route::get("/controller/{name}", [Users::class,'index']);
 
 // Auth::routes();
 
