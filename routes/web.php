@@ -25,7 +25,9 @@ Route::get('/king', function () {
     return redirect("home"); // When you want to redirect page to another page instead of given url page    
 });
 // Short way to view pages
-
+Route::get('/about', function(){
+    return view('about');
+});
 Route::get("about/{value}", [Users::class, 'callView']);
 Route::view("home", "home");
 
