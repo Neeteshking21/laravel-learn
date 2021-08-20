@@ -18,4 +18,4 @@ use App\Http\Controllers\UserLogin;
      return view('welcome');
  });
  Route::view("login", "User");
- Route::post("user",[UserLogin::class, 'getData']);
+ Route::get("user",[UserLogin::class, 'getData']);
