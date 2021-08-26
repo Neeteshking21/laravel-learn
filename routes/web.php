@@ -19,3 +19,4 @@ use App\Http\Controllers\UserLogin;
  });
  Route::view("login", "User");
  Route::get("user",[UserLogin::class, 'getData']);
+ Route::view("noaccess","noaccess");
